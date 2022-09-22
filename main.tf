@@ -46,7 +46,7 @@ module "main" {
   net_profile_docker_bridge_cidr    = var.docker_bridge_cidr
   net_profile_dns_service_ip        = cidrhost(var.service_cidr, 10)
   net_profile_service_cidr          = var.service_cidr
-  network_plugin                    = "azure"
+  network_plugin                    = var.network_plugin
   orchestrator_version              = var.kubernetes_version
   os_disk_size_gb                   = var.root_disk_size
   private_cluster_enabled           = false

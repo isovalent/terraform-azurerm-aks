@@ -45,6 +45,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | <a name="input_max_nodes"></a> [max\_nodes](#input\_max\_nodes) | The maximum number of nodes in the AKS cluster. | `number` | `4` | no |
 | <a name="input_min_nodes"></a> [min\_nodes](#input\_min\_nodes) | The minimum number of nodes in the AKS cluster. | `number` | `3` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the AKS cluster. | `string` | n/a | yes |
+| <a name="input_network_plugin"></a> [network\_plugin](#input\_network\_plugin) | The network plugin to use (one of 'azure' or 'none'). | `string` | `"azure"` | no |
 | <a name="input_owner"></a> [owner](#input\_owner) | Your name. | `string` | n/a | yes |
 | <a name="input_paid_tier"></a> [paid\_tier](#input\_paid\_tier) | Whether to use the "Paid" AKS tier. | `bool` | `false` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region in which to create the AKS cluster and associated resources. | `string` | n/a | yes |

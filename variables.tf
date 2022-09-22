@@ -53,6 +53,12 @@ variable "min_nodes" {
   type        = number
 }
 
+variable "network_plugin" {
+  description = "The network plugin to use (one of 'azure' or 'none')."
+  default     = "azure"
+  type        = string
+}
+
 variable "owner" {
   description = "Your name."
   type        = string
