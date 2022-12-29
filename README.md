@@ -25,7 +25,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 |------|--------|---------|
 | <a name="module_availability_zones_data_source"></a> [availability\_zones\_data\_source](#module\_availability\_zones\_data\_source) | matti/resource/shell | 1.5.0 |
 | <a name="module_cilium_service_principal"></a> [cilium\_service\_principal](#module\_cilium\_service\_principal) | git::https://github.com/isovalent/terraform-azuread-service-principal.git | v1.0 |
-| <a name="module_main"></a> [main](#module\_main) | Azure/aks/azurerm | 6.0.0 |
+| <a name="module_main"></a> [main](#module\_main) | Azure/aks/azurerm | 6.4.0 |
 
 ## Resources
 

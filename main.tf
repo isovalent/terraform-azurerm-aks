@@ -32,7 +32,7 @@ data "azuread_group" "admins" {
 // Create an AKS cluster.
 module "main" {
   source  = "Azure/aks/azurerm"
-  version = "6.0.0"
+  version = "6.4.0"
 
   agents_availability_zones         = sort(flatten(jsondecode(module.availability_zones_data_source.stdout)))
   agents_max_count                  = var.max_nodes
