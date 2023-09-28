@@ -1,0 +1,39 @@
+aksbyocni:
+  enabled: true
+bpf:
+  masquerade: false
+enableIPv4Masquerade: false
+encryption:
+  enabled: false
+hubble:
+  enabled: true
+  listenAddress: :4244
+  metrics:
+    enabled:
+      - dns
+      - drop:sourceContext=pod-short;destinationContext=pod-short
+      - icmp
+      - port-distribution
+      - tcp
+    port: 29091
+  relay:
+    enabled: true
+  tls:
+    auto:
+      method: cronJob
+  ui:
+    enabled: true
+kubeProxyReplacement: disabled
+nodeinit:
+  enabled: true
+  restartPods: true
+nodePort:
+  enableHealthCheck: false
+prometheus:
+  enabled: true
+  port: 29090
+operator:
+  prometheus:
+    enabled: true
+    port: 6942
+tunnel: disabled
