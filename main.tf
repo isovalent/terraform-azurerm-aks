@@ -39,6 +39,7 @@ module "main" {
   agents_min_count                  = var.min_nodes
   agents_pool_name                  = local.pool_name
   agents_tags                       = local.tags
+  agents_size                       = var.instance_type
   cluster_name                      = var.name
   enable_auto_scaling               = true
   role_based_access_control_enabled = true
