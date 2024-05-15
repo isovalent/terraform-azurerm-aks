@@ -7,25 +7,25 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.3 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.28.1 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.22.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.1.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.49.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.103.1 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | >= 2.28.1 |
-| <a name="provider_null"></a> [null](#provider\_null) | >= 3.1.1 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | >= 2.49.1 |
+| <a name="provider_null"></a> [null](#provider\_null) | >= 3.2.2 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_availability_zones_data_source"></a> [availability\_zones\_data\_source](#module\_availability\_zones\_data\_source) | matti/resource/shell | 1.5.0 |
-| <a name="module_cilium_service_principal"></a> [cilium\_service\_principal](#module\_cilium\_service\_principal) | git::https://github.com/isovalent/terraform-azuread-service-principal.git | v1.0 |
-| <a name="module_main"></a> [main](#module\_main) | Azure/aks/azurerm | 6.4.0 |
+| <a name="module_cilium_service_principal"></a> [cilium\_service\_principal](#module\_cilium\_service\_principal) | git::https://github.com/isovalent/terraform-azure-service-principal.git | v1.1 |
+| <a name="module_main"></a> [main](#module\_main) | Azure/aks/azurerm | 8.0.0 |
 
 ## Resources
 
@@ -39,15 +39,14 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_azuread_group_names"></a> [admin\_azuread\_group\_names](#input\_admin\_azuread\_group\_names) | The list of Azure AD groups that should be granted admin access to the AKS cluster. | `list(string)` | `[]` | no |
-| <a name="input_docker_bridge_cidr"></a> [docker\_bridge\_cidr](#input\_docker\_bridge\_cidr) | The CIDR to use for the Docker bridge on the nodes. | `string` | `"172.16.0.0/16"` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The type of instance to use for the single node pool to be created. (NOTE: The upstream AKS module doesn't support multiple node pools yet.) | `string` | `"Standard_D2s_v3"` | no |
-| <a name="input_kubernetes_version"></a> [kubernetes\_version](#input\_kubernetes\_version) | The version of Kubernetes to use. | `string` | `"1.22.6"` | no |
+| <a name="input_kubernetes_version"></a> [kubernetes\_version](#input\_kubernetes\_version) | The version of Kubernetes to use. | `string` | `"1.29.4"` | no |
 | <a name="input_max_nodes"></a> [max\_nodes](#input\_max\_nodes) | The maximum number of nodes in the AKS cluster. | `number` | `4` | no |
 | <a name="input_min_nodes"></a> [min\_nodes](#input\_min\_nodes) | The minimum number of nodes in the AKS cluster. | `number` | `3` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the AKS cluster. | `string` | n/a | yes |
 | <a name="input_network_plugin"></a> [network\_plugin](#input\_network\_plugin) | The network plugin to use (one of 'azure' or 'none'). | `string` | `"azure"` | no |
 | <a name="input_owner"></a> [owner](#input\_owner) | Your name. | `string` | n/a | yes |
-| <a name="input_paid_tier"></a> [paid\_tier](#input\_paid\_tier) | Whether to use the "Paid" AKS tier. | `bool` | `false` | no |
+| <a name="input_paid_tier"></a> [paid\_tier](#input\_paid\_tier) | Whether to use the "Standard" AKS tier. | `bool` | `false` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region in which to create the AKS cluster and associated resources. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure resource group in which to create the AKS cluster. | `string` | n/a | yes |
 | <a name="input_root_disk_size"></a> [root\_disk\_size](#input\_root\_disk\_size) | The size (in GB) of the root disk. | `number` | `100` | no |

@@ -32,7 +32,7 @@ data "azuread_group" "admins" {
 // Create an AKS cluster.
 module "main" {
   source  = "Azure/aks/azurerm"
-  version = "6.4.0"
+  version = "8.0.0"
 
   agents_availability_zones         = sort(flatten(jsondecode(module.availability_zones_data_source.stdout)))
   agents_max_count                  = var.max_nodes
@@ -44,7 +44,6 @@ module "main" {
   enable_auto_scaling               = true
   role_based_access_control_enabled = true
   kubernetes_version                = var.kubernetes_version
-  net_profile_docker_bridge_cidr    = var.docker_bridge_cidr
   net_profile_dns_service_ip        = cidrhost(var.service_cidr, 10)
   net_profile_service_cidr          = var.service_cidr
   network_plugin                    = var.network_plugin
@@ -56,14 +55,14 @@ module "main" {
   ]
   rbac_aad_managed    = true
   resource_group_name = var.resource_group_name
-  sku_tier            = var.paid_tier ? "Paid" : "Free"
+  sku_tier            = var.paid_tier ? "Standard" : "Free"
   prefix              = var.name
   vnet_subnet_id      = var.subnet_id
 }
 
 // Create an Azure AD service principal that Cilium can run under.
 module "cilium_service_principal" {
-  source = "git::https://github.com/isovalent/terraform-azuread-service-principal.git?ref=v1.0"
+  source = "git::https://github.com/isovalent/terraform-azure-service-principal.git?ref=v1.1"
 
   application_name = "${var.name}-cilium"
 }
