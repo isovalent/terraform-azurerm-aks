@@ -18,12 +18,6 @@ variable "admin_azuread_group_names" {
   type        = list(string)
 }
 
-variable "docker_bridge_cidr" {
-  default     = "172.16.0.0/16"
-  description = "The CIDR to use for the Docker bridge on the nodes."
-  type        = string
-}
-
 variable "instance_type" {
   default     = "Standard_D2s_v3"
   description = "The type of instance to use for the single node pool to be created. (NOTE: The upstream AKS module doesn't support multiple node pools yet.)"
@@ -31,7 +25,7 @@ variable "instance_type" {
 }
 
 variable "kubernetes_version" {
-  default     = "1.22.6"
+  default     = "1.29.4"
   description = "The version of Kubernetes to use."
   type        = string
 }
@@ -65,7 +59,7 @@ variable "owner" {
 }
 
 variable "paid_tier" {
-  description = "Whether to use the \"Paid\" AKS tier."
+  description = "Whether to use the \"Standard\" AKS tier."
   default     = false
   type        = bool
 }

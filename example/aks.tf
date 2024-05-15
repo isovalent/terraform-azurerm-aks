@@ -7,7 +7,10 @@ resource "azurerm_resource_group" "arg" {
 // Create a network.
 module "network" {
   source  = "Azure/network/azurerm"
-  version = "3.5.0"
+  version = "5.3.0"
+
+  use_for_each = false
+  depends_on = [azurerm_resource_group.arg]
 
   address_space       = var.vpc_cidr
   resource_group_name = basename(azurerm_resource_group.arg.id)
@@ -20,6 +23,8 @@ module "network" {
 module "aks" {
   source = "../"
 
+  depends_on = [azurerm_resource_group.arg]
+
   name                = var.name
   owner               = var.owner
   region              = var.region
@@ -30,13 +35,14 @@ module "aks" {
 }
 
 // Provision the AKS cluster.
-module "provisioner" {
-  source = "git::https://github.com/isovalent/terraform-k8s-cilium.git?ref=v1.0"
+module "cilium" {
+  source = "git::https://github.com/isovalent/terraform-k8s-cilium.git?ref=v1.6.3"
 
-  cilium_helm_chart            = "cilium/cilium"
-  cilium_helm_version          = "1.12.2"
-  cilium_helm_values_file_path = "${abspath(path.module)}/cilium-helm-values.yaml"
-  cilium_namespace             = "cilium"
-  ipsec_key                    = var.ipsec_key
-  path_to_kubeconfig_file      = module.aks.path_to_kubeconfig_file
+  cilium_helm_release_name              = "cilium"
+  cilium_helm_chart                     = "cilium/cilium"
+  cilium_helm_version                   = "1.15.5"
+  cilium_helm_values_file_path          = "${abspath(path.module)}/cilium-helm-values.yaml"
+  cilium_namespace                      = "cilium"
+  path_to_kubeconfig_file               = module.aks.path_to_kubeconfig_file
+  cilium_helm_values_override_file_path = var.cilium_helm_values_override_file
 }

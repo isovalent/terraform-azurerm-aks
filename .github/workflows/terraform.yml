@@ -1,13 +1,9 @@
 name: Terraform docs and formatting
 on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  pull_request: {}
   push:
     branches:
-      - master
+      - main
 jobs:
   formatting:
     runs-on: ubuntu-22.04

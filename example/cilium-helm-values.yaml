@@ -1,10 +1,7 @@
 aksbyocni:
   enabled: true
 bpf:
-  masquerade: false
-enableIPv4Masquerade: false
-encryption:
-  enabled: false
+  masquerade: true
 hubble:
   enabled: true
   listenAddress: :4244
@@ -23,12 +20,10 @@ hubble:
       method: cronJob
   ui:
     enabled: true
-kubeProxyReplacement: disabled
+kubeProxyReplacement: "true"
 nodeinit:
   enabled: true
   restartPods: true
-nodePort:
-  enableHealthCheck: false
 prometheus:
   enabled: true
   port: 29090
@@ -36,4 +31,3 @@ operator:
   prometheus:
     enabled: true
     port: 6942
-tunnel: disabled

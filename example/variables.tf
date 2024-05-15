@@ -1,12 +1,5 @@
-variable "ipsec_key" {
-  description = "The IPsec key to use."
-  sensitive   = true
-  default     = ""
-  type        = string
-}
-
 variable "kubernetes_version" {
-  default     = "1.22.6"
+  default     = "1.29.4"
   description = "The version of Kubernetes to use."
   type        = string
 }
@@ -32,12 +25,12 @@ variable "min_nodes" {
 
 variable "owner" {
   description = "Your name."
-  default     = "example run"
+  default     = "test"
   type        = string
 }
 
 variable "paid_tier" {
-  description = "Whether to use the \"Paid\" AKS tier."
+  description = "Whether to use the \"Standard\" AKS tier."
   default     = false
   type        = bool
 }
@@ -64,9 +57,14 @@ variable "tenant_id" {
   type    = string
 }
 
-
 variable "vpc_cidr" {
   default     = "10.240.0.0/16"
   description = "The CIDR to use for the VPC."
+  type        = string
+}
+
+variable "cilium_helm_values_override_file" {
+  default     = ""
+  description = "Path to a Helm values YAML files intended to be used to enrich / override the default set of values above, from the CI or for local development.."
   type        = string
 }
