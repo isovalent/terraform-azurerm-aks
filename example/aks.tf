@@ -10,7 +10,7 @@ module "network" {
   version = "5.3.0"
 
   use_for_each = false
-  depends_on = [azurerm_resource_group.arg]
+  depends_on   = [azurerm_resource_group.arg]
 
   address_space       = var.vpc_cidr
   resource_group_name = basename(azurerm_resource_group.arg.id)
