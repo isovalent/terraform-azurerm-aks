@@ -67,6 +67,25 @@ module "cilium_service_principal" {
   application_name = "${var.name}-cilium"
 }
 
+resource "azapi_update_resource" "kube_proxy_disabled" {
+  depends_on  = [module.main]
+  count       = var.kube_proxy_disabled == true ? 1 : 0
+  resource_id = module.main.aks_id
+  type        = "Microsoft.ContainerService/managedClusters@2024-02-02-preview"
+  body = jsonencode({
+    properties = {
+      networkProfile = {
+        kubeProxyConfig = {
+          enabled = false
+        }
+      }
+    }
+  })
+  lifecycle {
+    ignore_changes = all
+  }
+}
+
 // Make sure the kubeconfig file always exists.
 // This is necessary because running 'terraform init' may replace the directory containing it when run.
 resource "null_resource" "kubeconfig" {

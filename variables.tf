@@ -89,3 +89,9 @@ variable "subnet_id" {
   description = "The ID of the subnet where to place the node pool."
   type        = string
 }
+
+variable "kube_proxy_disabled" {
+  description = "Disable kube-proxy"
+  default     = false
+  type        = bool
+}
