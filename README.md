@@ -8,6 +8,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | >= 1.14.0 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.49.1 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.103.1 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.2 |
@@ -16,6 +17,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 
 | Name | Version |
 |------|---------|
+| <a name="provider_azapi"></a> [azapi](#provider\_azapi) | >= 1.14.0 |
 | <a name="provider_azuread"></a> [azuread](#provider\_azuread) | >= 2.49.1 |
 | <a name="provider_null"></a> [null](#provider\_null) | >= 3.2.2 |
 
@@ -31,6 +33,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 
 | Name | Type |
 |------|------|
+| [azapi_update_resource.kube_proxy_disabled](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/update_resource) | resource |
 | [null_resource.kubeconfig](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [azuread_group.admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
 
@@ -40,6 +43,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_azuread_group_names"></a> [admin\_azuread\_group\_names](#input\_admin\_azuread\_group\_names) | The list of Azure AD groups that should be granted admin access to the AKS cluster. | `list(string)` | `[]` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The type of instance to use for the single node pool to be created. (NOTE: The upstream AKS module doesn't support multiple node pools yet.) | `string` | `"Standard_D2s_v3"` | no |
+| <a name="input_kube_proxy_disabled"></a> [kube\_proxy\_disabled](#input\_kube\_proxy\_disabled) | Disable kube-proxy | `bool` | `false` | no |
 | <a name="input_kubernetes_version"></a> [kubernetes\_version](#input\_kubernetes\_version) | The version of Kubernetes to use. | `string` | `"1.29.4"` | no |
 | <a name="input_max_nodes"></a> [max\_nodes](#input\_max\_nodes) | The maximum number of nodes in the AKS cluster. | `number` | `4` | no |
 | <a name="input_min_nodes"></a> [min\_nodes](#input\_min\_nodes) | The minimum number of nodes in the AKS cluster. | `number` | `3` | no |
@@ -59,6 +63,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 |------|-------------|
 | <a name="output_cilium_service_principal_client_id"></a> [cilium\_service\_principal\_client\_id](#output\_cilium\_service\_principal\_client\_id) | n/a |
 | <a name="output_cilium_service_principal_client_secret"></a> [cilium\_service\_principal\_client\_secret](#output\_cilium\_service\_principal\_client\_secret) | n/a |
+| <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
 | <a name="output_node_resource_group"></a> [node\_resource\_group](#output\_node\_resource\_group) | n/a |
 | <a name="output_path_to_kubeconfig_file"></a> [path\_to\_kubeconfig\_file](#output\_path\_to\_kubeconfig\_file) | n/a |
