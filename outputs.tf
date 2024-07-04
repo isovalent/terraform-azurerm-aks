@@ -35,3 +35,7 @@ output "path_to_kubeconfig_file" {
 output "resource_group" {
   value = var.name
 }
+
+output "cluster_endpoint" {
+  value = module.main.cluster_fqdn
+}
