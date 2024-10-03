@@ -55,6 +55,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure resource group in which to create the AKS cluster. | `string` | n/a | yes |
 | <a name="input_root_disk_size"></a> [root\_disk\_size](#input\_root\_disk\_size) | The size (in GB) of the root disk. | `number` | `100` | no |
 | <a name="input_service_cidr"></a> [service\_cidr](#input\_service\_cidr) | The CIDR block to use for services. | `string` | n/a | yes |
+| <a name="input_sp_enabled"></a> [sp\_enabled](#input\_sp\_enabled) | Set to false to disable service principle creation | `bool` | `true` | no |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the subnet where to place the node pool. | `string` | n/a | yes |
 
 ## Outputs
