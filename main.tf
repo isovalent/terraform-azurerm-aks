@@ -63,7 +63,7 @@ module "main" {
 // Create an Azure AD service principal that Cilium can run under.
 module "cilium_service_principal" {
   count  = var.sp_enabled == true ? 1 : 0
-  source = "git::https://github.com/isovalent/terraform-azure-service-principal.git?ref=v1.1"
+  source = "git::https://github.com/isovalent/terraform-azure-service-principal.git?ref=v1.2"
 
   application_name = "${var.name}-cilium"
 }
