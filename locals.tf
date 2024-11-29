@@ -18,4 +18,6 @@ locals {
   tags = {
     "owner" : var.owner,
   }
+  availability_zones_output = module.availability_zones_data_source.stdout != "" ? module.availability_zones_data_source.stdout : "[]"
+
 }
