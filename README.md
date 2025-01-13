@@ -49,6 +49,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | <a name="input_min_nodes"></a> [min\_nodes](#input\_min\_nodes) | The minimum number of nodes in the AKS cluster. | `number` | `3` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the AKS cluster. | `string` | n/a | yes |
 | <a name="input_network_plugin"></a> [network\_plugin](#input\_network\_plugin) | The network plugin to use (one of 'azure' or 'none'). | `string` | `"azure"` | no |
+| <a name="input_oidc_issuer_enabled"></a> [oidc\_issuer\_enabled](#input\_oidc\_issuer\_enabled) | Enable OIDC issuer | `bool` | `false` | no |
 | <a name="input_owner"></a> [owner](#input\_owner) | Your name. | `string` | n/a | yes |
 | <a name="input_paid_tier"></a> [paid\_tier](#input\_paid\_tier) | Whether to use the "Standard" AKS tier. | `bool` | `false` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region in which to create the AKS cluster and associated resources. | `string` | n/a | yes |
@@ -57,6 +58,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | <a name="input_service_cidr"></a> [service\_cidr](#input\_service\_cidr) | The CIDR block to use for services. | `string` | n/a | yes |
 | <a name="input_sp_enabled"></a> [sp\_enabled](#input\_sp\_enabled) | Set to false to disable service principle creation | `bool` | `true` | no |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the subnet where to place the node pool. | `string` | n/a | yes |
+| <a name="input_workload_identity_enabled"></a> [workload\_identity\_enabled](#input\_workload\_identity\_enabled) | Enable workload identity | `bool` | `false` | no |
 
 ## Outputs
 
@@ -67,6 +69,7 @@ An opinionated Terraform module that can be used to create and manage an AKS clu
 | <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
 | <a name="output_node_resource_group"></a> [node\_resource\_group](#output\_node\_resource\_group) | n/a |
+| <a name="output_oidc_issuer_url"></a> [oidc\_issuer\_url](#output\_oidc\_issuer\_url) | n/a |
 | <a name="output_path_to_kubeconfig_file"></a> [path\_to\_kubeconfig\_file](#output\_path\_to\_kubeconfig\_file) | n/a |
 | <a name="output_resource_group"></a> [resource\_group](#output\_resource\_group) | n/a |
 <!-- END_TF_DOCS -->
