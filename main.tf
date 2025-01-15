@@ -34,7 +34,7 @@ module "main" {
   source  = "Azure/aks/azurerm"
   version = "9.0.0"
 
-  agents_availability_zones         = sort(flatten(jsondecode(module.availability_zones_data_source.stdout)))
+  agents_availability_zones         = sort(flatten(jsondecode(local.availability_zones_output)))
   agents_max_count                  = var.max_nodes
   agents_min_count                  = var.min_nodes
   agents_pool_name                  = local.pool_name
