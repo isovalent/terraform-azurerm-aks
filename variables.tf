@@ -113,3 +113,9 @@ variable "workload_identity_enabled" {
   default     = false
   type        = bool
 }
+
+variable "enable_auto_scaling" {
+  description = "Enable auto scaling"
+  default     = false
+  type        = bool
+}

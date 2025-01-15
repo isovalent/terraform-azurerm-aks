@@ -41,7 +41,7 @@ module "main" {
   agents_tags                       = local.tags
   agents_size                       = var.instance_type
   cluster_name                      = var.name
-  enable_auto_scaling               = true
+  enable_auto_scaling               = var.enable_auto_scaling
   role_based_access_control_enabled = true
   kubernetes_version                = var.kubernetes_version
   net_profile_dns_service_ip        = cidrhost(var.service_cidr, 10)
