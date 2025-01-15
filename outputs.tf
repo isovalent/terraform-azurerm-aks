@@ -39,3 +39,8 @@ output "resource_group" {
 output "cluster_endpoint" {
   value = module.main.cluster_fqdn
 }
+
+
+output "oidc_issuer_url" {
+  value = module.main.oidc_issuer_url
+}

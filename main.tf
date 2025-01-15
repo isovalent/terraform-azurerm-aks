@@ -41,7 +41,7 @@ module "main" {
   agents_tags                       = local.tags
   agents_size                       = var.instance_type
   cluster_name                      = var.name
-  enable_auto_scaling               = true
+  enable_auto_scaling               = var.enable_auto_scaling
   role_based_access_control_enabled = true
   kubernetes_version                = var.kubernetes_version
   net_profile_dns_service_ip        = cidrhost(var.service_cidr, 10)
@@ -53,11 +53,13 @@ module "main" {
   rbac_aad_admin_group_object_ids = [
     for k, v in data.azuread_group.admins : v.id
   ]
-  rbac_aad_managed    = true
-  resource_group_name = var.resource_group_name
-  sku_tier            = var.paid_tier ? "Standard" : "Free"
-  prefix              = var.name
-  vnet_subnet_id      = var.subnet_id
+  rbac_aad_managed          = true
+  resource_group_name       = var.resource_group_name
+  sku_tier                  = var.paid_tier ? "Standard" : "Free"
+  prefix                    = var.name
+  vnet_subnet_id            = var.subnet_id
+  oidc_issuer_enabled       = var.oidc_issuer_enabled
+  workload_identity_enabled = var.workload_identity_enabled
 }
 
 // Create an Azure AD service principal that Cilium can run under.

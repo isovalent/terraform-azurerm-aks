@@ -101,3 +101,21 @@ variable "sp_enabled" {
   default     = true
   type        = bool
 }
+
+variable "oidc_issuer_enabled" {
+  description = "Enable OIDC issuer"
+  default     = false
+  type        = bool
+}
+
+variable "workload_identity_enabled" {
+  description = "Enable workload identity"
+  default     = false
+  type        = bool
+}
+
+variable "enable_auto_scaling" {
+  description = "Enable auto scaling"
+  default     = false
+  type        = bool
+}
